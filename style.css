@@ -42,7 +42,6 @@ body {
 .Name{
   color: #fff;
   font-size: 1.5em;
-  text-align: right;
 }
 
 .links{
@@ -51,26 +50,31 @@ body {
   text-align:left;
 }
 
+.container0{
+    display: flex;
+    flex-flow: row wrap;
+    text-align: center;
+}
+
 button{
-  margin: 0.15em;
+  margin: 0.25em;
+  padding: 0.5em;
   border: 0.125em solid #fff;
   background-color: transparent;
   border-radius: 1em;
   font-size: 1.75em;
   color: #fff;
-  transition: all 0.2s ease-in-out;
+
+/*  transition: all 0.2s ease-in-out;*/
 }
 
 button:hover{
-  background-image: linear-gradient(-30deg, #2E9AFF, #F498AD);    
-	-webkit-background-clip: text;
-	background-clip: text;
-
-  background-color: #fff;
-  transition: all 0.2s ease-in-out;
+    background-color: #fff;
 }
 
-
+button:hover > a{
+    color: #9899d3;
+}
 
 footer{
   color: #fff;
@@ -82,17 +86,22 @@ footer{
   height: 3em;
 }
 
-a {
+a, a:visited{
+    text-decoration:none;
+    color: #fff;
+}
+
+.coptLink {
   text-decoration: none;
   color: #fff;
   transition: all 0.5s ease-in-out;
 }
-a:hover {
+.coptLink:hover {
   text-decoration: underline;
   border-bottom: 4px rgb(255, 255, 255);
   transition: all 0.5s ease-in-out;
 }
-a:visited {
+.coptLink:visited {
   text-decoration: none;
   color: #fff;
   transition: all 0.5s ease-in-out;
