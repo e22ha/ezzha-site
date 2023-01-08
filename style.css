@@ -9,6 +9,8 @@ body {
   font-family: "Montserrat", sans-serif; 
 }
 
+
+
 .content{
   min-height: 100vh;
   height: 100vh;
@@ -41,7 +43,7 @@ body {
 
 .Name{
   color: #fff;
-  font-size: 1em;
+  font-size: 1.5em;
 }
 
 .links{
@@ -62,7 +64,7 @@ button{
   border: 0.125em solid #fff;
   background-color: transparent;
   border-radius: 1em;
-  font-size: .75em;
+  font-size: 1em;
   color: #fff;
 
 /*  transition: all 0.2s ease-in-out;*/
@@ -84,7 +86,7 @@ footer{
   bottom: 0;
   width: 100%;
   height: 3em;
-  font-size: .5em;
+  font-size: .75em;
 }
 
 a, a:visited{
