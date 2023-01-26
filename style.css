@@ -21,29 +21,25 @@
 		}
     
 
-    .link, .bio, .avatar{
-      padding: 0.5em;
-    }
-
-    .avatar{
-      min-width: 20%;
-      /* background-color: rgb(226, 116, 43); */
-    }
     
     .pic{
       max-width: 100%;
-      border-radius: 1em;
+      border-radius: 3em;
     }
 
-    .bio{
-      min-width: 40%;
-      /* background-color: blueviolet; */
-    }
+	.border{
+		border: 0.2em solid #242424 !important;
+		padding: .5em;
+		margin:  .2em .5em .2em 0em;
+		max-width: 100%;
+		flex: 0 0 auto;
 
-    .link{
-      min-width: 40%;
-      /* background-color: rgb(43, 214, 226); */
-    }
+	}
+
+	.rad{
+		border-radius: 1em !important;
+	}
+
 
     h1{
       font-size: 1em/1.5;
@@ -51,21 +47,11 @@
     }
 
 
-    .first-block{
-      /* background-color: aquamarine; */
-      min-width: 100%;
-      display: flex;
-      flex-direction: row;
-      justify-content: auto;
-    }
-
-
 
 		.content {
 		    max-width:90%;
 		    margin: 0 auto;
-        padding-top: 2em;
-
+        	padding-top: 2em;
 		}
 		
 		.profile {
