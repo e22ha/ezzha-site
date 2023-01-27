@@ -3,26 +3,10 @@ body {
     max-width: 100%;
     overflow: hidden;
     font-family: "Inter", sans-serif;
+    color:rgb(27, 27, 27);
 }
 
 body {
-    background-image: linear-gradient(
-        -10deg,
-        rgba(
-                75.34896120429039,
-                88.45313563942909,
-                157.25000202655792,
-                1
-            )
-            0%,
-        rgba(
-                199.4132235646248,
-                104.70937013626099,
-                232.68750607967377,
-                1
-            )
-            100%
-    );
     height: 100vh;
     width: 100%;
     display: flex;
@@ -54,96 +38,3 @@ img {
     border-bottom-right-radius: 45px;
     background-repeat: no-repeat;
 }
-
-.navbar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    padding: 0px;
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    width: 80%;
-}
-
-.bar_link {
-    font-style: normal;
-    font-size: xx-large;
-    /* identical to box height */
-    display: flex;
-    align-items: center;
-    text-align: center;
-    text-transform: uppercase;
-    /* Inside auto layout */
-    -webkit-text-stroke: 0.03em white; 
-    color:rgba(
-        199.4132235646248,
-        104.70937013626099,
-        232.68750607967377,
-        1
-    );
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-}
-
-
-.active, .bar_link:hover{
-    color: white;
-}
-
-.disable{
-    -webkit-text-stroke: 0.03em rgba(255, 255, 255, 0.5); 
-}
-
-.disable:hover{
-    -webkit-text-stroke: 0.03em rgba(255, 255, 255, 0.5); 
-    color:rgba(
-        199.4132235646248,
-        104.70937013626099,
-        232.68750607967377,
-        1
-    );
-}
-
-.projects .links {
-    font-size: xx-large;
-    color: white;
-}
-
-.link-to-page a{
-    font-size: x-large;
-}
-
-.link-to-page{
-    color: #fff;
-}
-
-li{
-    margin-top: 5%;
-    color: white;
-}
-
-.project a {
-    color: white;
-    font-size: x-large;
-    text-decoration: underline;
-}
-
-a{
-    text-decoration: none;
-    color: #fff;
-}
-
-footer{
-    color: #fff;
-    text-align: center;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 3em;
-    font-size: .75em;
-  }
