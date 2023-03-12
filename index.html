@@ -19,40 +19,64 @@
             href="style.css"
     />
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <style>
+        h1{
+            font-size: 2em;
+        }
+        p{
+            font-weight: normal;
+        }
+        .badge{
+            border: 0.1em solid #000 !important;
+            border-radius: 1em !important;
+            font-size: 1em !important;
+            font-weight: normal !important;
+        }
+    </style>
 </head>
 <body>
-
-<div class="content">
-    <div class="row d-flex justify-content-around">
-        <div class="col-5 col-sm-5 col-md-5 col-lg-3 col-xl-3" style="padding-top: 3em">
-            <img class="pic" src="/img/avatar.png" alt=""/>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-3">
+            <!-- колонка с фото -->
+            <img src="img/avatar.png" alt="Фото" class="img-fluid" >
         </div>
-        <div class="col-8 col-sm-8 col-md-8 col-lg-6 col-xl-6" style="padding-top: 3em">
-            <h1>СЕРЁЖА МАНЖОС</h1>
-            <div class="bio">
-                <p>
-                    Я мультидисциплинарный дизайнер с опытом в графическом,
-                    моушн, бродкаст дизайне и инфографике. Я участвовал
-                    в организации большого международного фестиваля Человеческое Кино.
-                    Я постоянно развиваю свои навыки и изучаю новые технологии для того,
-                    чтобы находить интересные дизайнерские решения.
-                    Я проявляю внимательность к деталям и ответственность по отношению к своему рабочему процессу.
-                </p>
-            </div>
-            <div style="display: inline-flex; flex-direction: row;flex-wrap: wrap; padding-top: 1.5em">
-                <p class="border rad">моушн дизайн</p>
-                <p class="border rad">инфографика</p>
-                <p class="border rad">бродкаст</p>
-                <p class="border rad">2D анимация</p>
+        <div class="col-md-6">
+            <!-- колонка с именем, биографией и скиллами -->
+            <h1>Сергей Манжос</h1>
+            <p class="rounded-5 p-3" style="background-color: aliceblue">
+                Я мультидисциплинарный дизайнер с опытом в графическом,
+                моушн, бродкаст дизайне и инфографике. Я участвовал
+                в организации большого международного фестиваля Человеческое Кино.
+                Я постоянно развиваю свои навыки и изучаю новые технологии для того,
+                чтобы находить интересные дизайнерские решения.
+                Я проявляю внимательность к деталям и ответственность по отношению к своему рабочему процессу.
+            </p>
+            <div class="d-flex flex-wrap">
+                <span class="badge rounded-pill border flex-basis mx-1 my-1">моушн дизайн</span>
+                <span class="badge rounded-pill border flex-basis mx-1 my-1">2D анимация</span>
+                <span class="badge rounded-pill border flex-basis mx-1 my-1">инфограика</span>
+                <span class="badge rounded-pill border flex-basis mx-1 my-1">бродкаст</span>
             </div>
         </div>
-        <div class="col-8 col-sm-8 col-md-8 col-lg-3 col-xl-3" style="padding-top: 3em">
-            <h1>ССЫЛКИ</h1>
-            <p>Behance</p>
-            <p>TG</p>
-            <p>IG</p>
+        <div class="col-md-3">
+            <!-- колонка со списком ссылок -->
+            <h1>Ссылки</h1>
+            <ul>
+                <li><a href="#">Ссылка 1</a></li>
+                <li><a href="#">Ссылка 2</a></li>
+                <li><a href="#">Ссылка 3</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- галерея проектов -->
+    <div class="row">
+        <div class="col">
+            <!-- здесь будет галерея проектов -->
         </div>
     </div>
 </div>
+<!-- подключение Bootstrap JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

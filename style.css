@@ -1,4 +1,17 @@
 
+.red{
+    background-color: red;
+}
+
+.blue{
+    background-color: blue;
+}
+
+.green{
+    background-color: green;
+}
+
+
 a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
     margin: 0;
     padding: 0;
@@ -20,145 +33,4 @@ body {
     box-sizing: border-box;
 }
 
-span,
-svg {
-    width: inherit;
-    height: inherit;
-    color: inherit;
-}
 
-
-.pic {
-    max-width: 75%;
-    border-radius: 3em;
-}
-
-.border {
-    border: 0.2em solid #242424 !important;
-    padding: .5em;
-    margin: .2em .5em .2em 0;
-    max-width: 100%;
-    flex: 0 0 auto;
-
-}
-
-.rad {
-    border-radius: 1em !important;
-}
-
-
-h1 {
-    font-size: 2em;
-    margin-bottom: 0;
-}
-
-.content{
-    max-width: 90%;
-    margin: 0 auto;
-}
-
-
-
-.profile {
-    margin: 0 0 40px 0;
-}
-
-.profile .picture {
-    display: inline-block;
-    width: 100px;
-    height: 100px;
-    border-radius: 20px;
-    vertical-align: top;
-}
-
-.profile .picture {
-    width: inherit;
-    height: inherit;
-    border-radius: inherit;
-}
-
-.profile .data {
-    display: inline-block;
-    width: calc(100% - 125px);
-    margin: 0 0 0 20px;
-    vertical-align: top;
-}
-
-.profile .data .name {
-    font-size: 20px;
-    font-weight: bold;
-    line-height: 24px;
-}
-
-.profile .data .about {
-    margin: 5px 0 10px 0;
-}
-
-.profile .data .labels {
-
-}
-
-.profile .data .labels .label {
-    color: #767676;
-    margin: 5px 0 0 0;
-}
-
-.profile .data .labels .label .icon {
-    width: 16px;
-    fill: #767676;
-    margin: 0 5px 0 0;
-    vertical-align: -2px;
-}
-
-.links {
-    margin: 20px 0 0 0;
-}
-
-.links .link {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    border: 1px solid rgba(5, 6, 15, .06);
-    border-radius: 20px;
-    background-color: #fff;
-    box-shadow: 0 23px 48px 0 rgb(0 0 0 / 4%);
-    padding: 20px;
-    margin: 0 0 10px 0;
-}
-
-.links .link .icon {
-    width: 32px;
-    height: 32px;
-    margin: 0 16px 0 0;
-}
-
-.links .link .icon {
-    width: inherit;
-    height: inherit;
-}
-
-.links .link .meta {
-
-}
-
-.links .link .meta .title {
-    font-weight: bold;
-}
-
-.links .link .meta .description {
-    color: #707075;
-    margin: 5px 0 0 0;
-}
-
-@media screen and (max-width: 860px) {
-    .profile .picture {
-        display: block;
-    }
-
-    .profile .data {
-        display: block;
-        width: 100%;
-        margin: 20px 0 0 0;
-    }
-}
-    
