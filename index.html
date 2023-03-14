@@ -1,41 +1,122 @@
 <!DOCTYPE html>
 <html lang="ru">
-    <head>
-        <meta charset="utf-8" />
-        <meta
+<head>
+    <meta charset="utf-8"/>
+    <meta
             http-equiv="X-UA-Compatible"
             content="IE=edge"
-        />
-        <title>ezzha</title>
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1"
-        />
-        <link
+    />
+    <title>ezzha</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link
             rel="stylesheet"
             type="text/css"
             media="screen"
-            href="new_style.css"
-        />
-        <!-- Yandex.Metrika counter -->
-    <script type="text/javascript" >
-        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+            href="style.css"
+    />
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            m[i].l = 1 * new Date();
+            for (var j = 0; j < document.scripts.length; j++) {
+                if (document.scripts[j].src === r) {
+                    return;
+                }
+            }
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
         (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-    
+
         ym(92198161, "init", {
-            clickmap:true,
-            trackLinks:true,
-            accurateTrackBounce:true,
-            webvisor:true
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true
         });
     </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/92198161" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/92198161" style="position:absolute; left:-9999px;" alt=""/></div>
+    </noscript>
     <!-- /Yandex.Metrika counter -->
-    </head>
-    <body style="justify-content: center;">
-            <img src="img/avatar.png"/>
-    </body>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <style>
+        h1 {
+            font-size: 2em;
+        }
+
+        p {
+            font-weight: normal;
+        }
+
+        hr {
+            margin: 0;
+            border: 0;
+            height: 0.05em;
+            background: #006399;
+        }
+
+        .badge {
+            border: 0.1em solid #006399 !important;
+            border-radius: 0.5em !important;
+            font-size: 1em !important;
+            font-weight: normal !important;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-3">
+            <!-- колонка с фото -->
+            <img alt="Фото" class="img-fluid" src="img/avatar.png">
+        </div>
+        <div class="col-md-6 ">
+            <!-- колонка с именем, биографией и скиллами -->
+            <h1 class="">Сергей Манжос</h1>
+            <div style="background-color: #96daff; border-radius: 1em">
+                <p class="mx-3 pt-3 blue">
+                    Я мультидисциплинарный дизайнер с опытом в графическом,
+                    моушн, бродкаст дизайне и инфографике. Я участвовал
+                    в организации большого международного фестиваля Человеческое Кино.
+                    Я постоянно развиваю свои навыки и изучаю новые технологии для того,
+                    чтобы находить интересные дизайнерские решения.
+                    Я проявляю внимательность к деталям и ответственность по отношению к своему рабочему процессу.
+                </p>
+                <hr class="mx-3 mt-3 mb-0">
+                <div class="d-flex flex-wrap mx-3 py-3">
+                    <span class="badge blue flex-basis mx-1 my-1">моушн дизайн</span>
+                    <span class="badge blue flex-basis mx-1 my-1">2D анимация</span>
+                    <span class="badge blue flex-basis mx-1 my-1">инфограика</span>
+                    <span class="badge blue flex-basis mx-1 my-1">бродкаст</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <!-- колонка со списком ссылок -->
+            <h1 class="">Ссылки</h1>
+            <span class="d-flex flex-column p-3">
+                <a class="links" href="https://www.behance.net/ezzha" target="_blank">Behance</a>
+                <a class="links" href="https://www.github.com/e22ha" target="_blank">GitHub</a>
+                <a class="links" href="https://www.instagram.com/axiscreator/" target="_blank">Instagram</a>
+                <a class="links" href="https://t.me/ezzha" target="_blank">Telegram</a>
+            </span>
+        </div>
+    </div>
+    <!-- галерея проектов -->
+    <div class="row">
+        <div class="col">
+            <!-- здесь будет галерея проектов -->
+        </div>
+    </div>
+</div>
+<!-- подключение Bootstrap JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>
