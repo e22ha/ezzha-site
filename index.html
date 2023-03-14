@@ -20,15 +20,24 @@
     />
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <style>
-        h1{
+        h1 {
             font-size: 2em;
         }
-        p{
+
+        p {
             font-weight: normal;
         }
-        .badge{
-            border: 0.1em solid #000 !important;
-            border-radius: 1em !important;
+
+        hr {
+            margin: 0;
+            border: 0;
+            height: 0.05em;
+            background: #006399;
+        }
+
+        .badge {
+            border: 0.1em solid #006399 !important;
+            border-radius: 0.5em !important;
             font-size: 1em !important;
             font-weight: normal !important;
         }
@@ -39,34 +48,38 @@
     <div class="row mt-5">
         <div class="col-md-3">
             <!-- колонка с фото -->
-            <img src="img/avatar.png" alt="Фото" class="img-fluid" >
+            <img alt="Фото" class="img-fluid" src="img/avatar.png">
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 ">
             <!-- колонка с именем, биографией и скиллами -->
-            <h1>Сергей Манжос</h1>
-            <p class="rounded-5 p-3" style="background-color: aliceblue">
-                Я мультидисциплинарный дизайнер с опытом в графическом,
-                моушн, бродкаст дизайне и инфографике. Я участвовал
-                в организации большого международного фестиваля Человеческое Кино.
-                Я постоянно развиваю свои навыки и изучаю новые технологии для того,
-                чтобы находить интересные дизайнерские решения.
-                Я проявляю внимательность к деталям и ответственность по отношению к своему рабочему процессу.
-            </p>
-            <div class="d-flex flex-wrap">
-                <span class="badge rounded-pill border flex-basis mx-1 my-1">моушн дизайн</span>
-                <span class="badge rounded-pill border flex-basis mx-1 my-1">2D анимация</span>
-                <span class="badge rounded-pill border flex-basis mx-1 my-1">инфограика</span>
-                <span class="badge rounded-pill border flex-basis mx-1 my-1">бродкаст</span>
+            <h1 class="">Сергей Манжос</h1>
+            <div style="background-color: #96daff; border-radius: 1em">
+                <p class="mx-3 pt-3 blue">
+                    Я мультидисциплинарный дизайнер с опытом в графическом,
+                    моушн, бродкаст дизайне и инфографике. Я участвовал
+                    в организации большого международного фестиваля Человеческое Кино.
+                    Я постоянно развиваю свои навыки и изучаю новые технологии для того,
+                    чтобы находить интересные дизайнерские решения.
+                    Я проявляю внимательность к деталям и ответственность по отношению к своему рабочему процессу.
+                </p>
+                <hr class="mx-3 mt-3 mb-0">
+                <div class="d-flex flex-wrap mx-3 py-3">
+                    <span class="badge blue flex-basis mx-1 my-1">моушн дизайн</span>
+                    <span class="badge blue flex-basis mx-1 my-1">2D анимация</span>
+                    <span class="badge blue flex-basis mx-1 my-1">инфограика</span>
+                    <span class="badge blue flex-basis mx-1 my-1">бродкаст</span>
+                </div>
             </div>
         </div>
         <div class="col-md-3">
             <!-- колонка со списком ссылок -->
-            <h1>Ссылки</h1>
-            <ul>
-                <li><a href="#">Ссылка 1</a></li>
-                <li><a href="#">Ссылка 2</a></li>
-                <li><a href="#">Ссылка 3</a></li>
-            </ul>
+            <h1 class="">Ссылки</h1>
+            <span class="d-flex flex-column p-3">
+                <a class="links" href="https://www.behance.net/ezzha" target="_blank">Behance</a>
+                <a class="links" href="https://www.github.com/e22ha" target="_blank">GitHub</a>
+                <a class="links" href="https://www.instagram.com/axiscreator/" target="_blank">Instagram</a>
+                <a class="links" href="https://t.me/ezzha" target="_blank">Telegram</a>
+            </span>
         </div>
     </div>
     <!-- галерея проектов -->
