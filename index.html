@@ -41,16 +41,32 @@
             font-size: 1em !important;
             font-weight: normal !important;
         }
+
+        .svg-icon {
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 <body>
 <div class="container">
-    <div class="row mt-5">
-        <div class="col-md-3">
+    <div class="row mt-5 justify-content-center">
+        <div class="col-lg-3">
             <!-- колонка с фото -->
-            <img alt="Фото" class="img-fluid" src="img/avatar.png">
+            <img alt="Фото" class="img-fluid" src="img/avatar.svg">
+            <div class="d-flex flex-row py-1">
+                <a href="https://www.behance.net/ezzha" target="_blank">
+                    <img class="svg-icon px-1" src="svg/behance-logo.svg" alt="behance-logo" width="800" height="800"/>
+                </a>
+                <a href="https://www.github.com/e22ha" target="_blank">
+                    <img class="svg-icon px-1" src="svg/github-rounded.svg" alt="github-logo"></a>
+                <a href="https://www.instagram.com/axiscreator/" target="_blank">
+                    <img class="svg-icon px-1" src="svg/instagram-rounded.svg" alt="instagram-logo"></a>
+                <a href="https://t.me/ezzha" target="_blank">
+                    <img class="svg-icon px-1" src="svg/brand-telegram.svg" alt="telegram-logo"></a>
+            </div>
         </div>
-        <div class="col-md-6 ">
+        <div class="col-lg-5">
             <!-- колонка с именем, биографией и скиллами -->
             <h1 class="">Сергей Манжос</h1>
             <div style="background-color: #96daff; border-radius: 1em">
@@ -65,22 +81,15 @@
                 <hr class="mx-3 mt-3 mb-0">
                 <div class="d-flex flex-wrap mx-3 py-3">
                     <span class="badge blue flex-basis mx-1 my-1">моушн дизайн</span>
+                    <span class="badge blue flex-basis mx-1 my-1">mogrt</span>
                     <span class="badge blue flex-basis mx-1 my-1">2D анимация</span>
                     <span class="badge blue flex-basis mx-1 my-1">инфограика</span>
                     <span class="badge blue flex-basis mx-1 my-1">бродкаст</span>
+                    <span class="badge blue flex-basis mx-1 my-1">expression</span>
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <!-- колонка со списком ссылок -->
-            <h1 class="">Ссылки</h1>
-            <span class="d-flex flex-column p-3">
-                <a class="links" href="https://www.behance.net/ezzha" target="_blank">Behance</a>
-                <a class="links" href="https://www.github.com/e22ha" target="_blank">GitHub</a>
-                <a class="links" href="https://www.instagram.com/axiscreator/" target="_blank">Instagram</a>
-                <a class="links" href="https://t.me/ezzha" target="_blank">Telegram</a>
-            </span>
-        </div>
+
     </div>
     <!-- галерея проектов -->
     <div class="row">
