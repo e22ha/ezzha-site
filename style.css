@@ -11,6 +11,7 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, bo
 body{
     display: flex;
     width: 100%;
+    min-width: 400px;
     padding: 10px 0;
     flex-direction: column;
     align-items: flex-start;
@@ -42,7 +43,7 @@ body{
 
 .f-block{
     display: flex;
-    padding: 0 65px;
+    padding: 0 2em;
     justify-content: space-between;
     align-items: flex-start;
     align-content: space-between;
@@ -80,7 +81,7 @@ body{
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    gap: 20px;
+    column-gap: 20px;
 }
 
 .link{
@@ -150,7 +151,7 @@ h3{
 
 .s-block{
     display: flex;
-    padding: 0 65px;
+    padding: 0 2em;
     flex-direction: column;
     align-items: flex-start;
     gap: 15px;
