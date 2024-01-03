@@ -1,3 +1,35 @@
+:root {
+    font-family: Inter, sans-serif;
+    font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
+}
+@supports (font-variation-settings: normal) {
+    :root { font-family: InterVariable, sans-serif; }
+}
+
+/*.shine {*/
+/*    position: relative;*/
+/*    display: inline-block;*/
+/*    overflow: hidden;*/
+/*}*/
+
+/*.shine::before {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    width: 200%;*/
+/*    height: 200%;*/
+/*    background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, .8) 50%, transparent 60%);*/
+/*    animation: shineAnimation 2s linear infinite;*/
+
+/*}*/
+/*@keyframes shineAnimation {*/
+/*    0% {*/
+/*        transform: translateX(-100%);*/
+/*    }*/
+/*    100% {*/
+/*        transform: translateX(100%);*/
+/*    }*/
+/*}*/
+
 a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
     margin: 0;
     padding: 0;
@@ -30,11 +62,6 @@ body{
     width: 100%;
 }
 
-.footer{
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
 
 .header-svg{
     display: flex;
@@ -131,11 +158,11 @@ body{
     filter: grayscale(1);
 }
 
-.pic-bloc img:hover {
+.pic-bloc:hover img {
     filter: none;
 }
 
-p, h1, h2, li, .about-text{
+p, h1, h2, li, .about-text, footer{
     font-size: 22px;
     font-style: normal;
     font-weight: 600;
