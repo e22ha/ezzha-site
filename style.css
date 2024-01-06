@@ -2,8 +2,11 @@
     font-family: Inter, sans-serif;
     font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
 }
+
 @supports (font-variation-settings: normal) {
-    :root { font-family: InterVariable, sans-serif; }
+    :root {
+        font-family: InterVariable, sans-serif;
+    }
 }
 
 /*.shine {*/
@@ -40,20 +43,20 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, bo
     text-decoration: none;
 }
 
-body{
+body {
     display: flex;
     width: 100%;
     min-width: 400px;
     padding: 10px 0;
     flex-direction: column;
     align-items: flex-start;
-    gap: 25px;
+    gap: 30px;
 
     color: #000;
     font-family: Inter, serif;
 }
 
-.header{
+.header {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -63,12 +66,12 @@ body{
 }
 
 
-.header-svg{
+.header-svg {
     display: flex;
     height: 75px;
 }
 
-.f-block{
+.f-block {
     display: flex;
     padding: 0 2em;
     justify-content: space-between;
@@ -76,44 +79,45 @@ body{
     align-content: space-between;
     flex: 1 0 0;
     align-self: stretch;
-    gap:15px;
+    gap: 15px;
     flex-wrap: wrap;
 }
 
-.bio{
+.bio {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
     align-self: stretch;
-    gap:15px;
+    gap: 15px;
 }
 
-.text{
+.text {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 15px;
+    gap: .8em;
     align-self: stretch;
 }
 
-.links-block{
+.links-block {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    gap: .8em;
 }
 
-.links{
+.links {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    column-gap: 20px;
+    column-gap: 1.5em;
+
 }
 
-.link{
+.link {
     color: #000;
-    font-size: 24px;
+    font-size: 22px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -122,26 +126,25 @@ body{
 }
 
 .link[href]:hover {
-    /*color: #fff;*/
     background-color: #f55;
 }
 
-.feature-project{
+.feature-project {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 15px;
+    gap: 0.8em;
     min-width: 30%;
 }
 
-.project-block{
+.project-block {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 5px;
 }
 
-.pic-bloc{
+.pic-bloc {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -162,21 +165,30 @@ body{
     filter: none;
 }
 
-p, h1, h2, li, .about-text, footer{
+p, h1, h2, .about-text, link, footer {
+    color: #000;
     font-size: 22px;
     font-style: normal;
     font-weight: 600;
-    line-height: normal;
+    line-height: 1.5;
 }
 
-h3{
+li{
+    color: #000;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+h3 {
     font-size: 28px;
     font-style: normal;
     font-weight: 900;
     line-height: normal;
 }
 
-.s-block{
+.s-block {
     display: flex;
     padding: 0 2em;
     flex-direction: column;
@@ -185,13 +197,14 @@ h3{
     align-self: stretch;
 }
 
-.exp{
+.exp {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    gap: .8em;
 }
 
-ul{
+ul {
+    gap: .8em;
     list-style-position: inside
 }
