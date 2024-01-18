@@ -50,7 +50,7 @@ body {
     padding: 10px 0;
     flex-direction: column;
     align-items: flex-start;
-    gap: 30px;
+    gap: 1.25em;
 
     color: #000;
     font-family: Inter, serif;
@@ -79,7 +79,7 @@ body {
     align-content: space-between;
     flex: 1 0 0;
     align-self: stretch;
-    gap: 15px;
+    gap: 2em;
     flex-wrap: wrap;
 }
 
@@ -89,14 +89,14 @@ body {
     justify-content: space-between;
     align-items: flex-start;
     align-self: stretch;
-    gap: 15px;
+    gap: 2em;
 }
 
 .text {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: .8em;
+    gap: 1.25em;
     align-self: stretch;
 }
 
@@ -125,15 +125,51 @@ body {
     transition: all 0.2s ease-in-out;
 }
 
-.link[href]:hover {
-    background-color: #f55;
+.y-color:hover {
+    background-color: #FF7272;
+}
+
+.i-color:hover{
+    background-color: #FF9F72;
+}
+
+.b-color:hover {
+    background-color: #74A6FF;
+}
+
+.v-color:hover {
+    background-color: #4A67FC;
+}
+
+.g-color:hover {
+    background-color: #CA74EE;
+}
+
+.n-color:hover {
+    background-color: #F9EECA;
+}
+
+.u-color:hover {
+    background-color: #B3B3B3;
+}
+
+.t-color:hover{
+    background-color: #039BE5;
+}
+
+.ch-color:hover{
+    background-color: #9EAEFD;
+}
+
+.e-color:hover{
+    background-color: #5DAE64;
 }
 
 .feature-project {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.8em;
+    gap: 1.25em;
     min-width: 30%;
 }
 
@@ -193,7 +229,7 @@ h3 {
     padding: 0 2em;
     flex-direction: column;
     align-items: flex-start;
-    gap: 15px;
+    gap: 1.25em;
     align-self: stretch;
 }
 
@@ -201,10 +237,10 @@ h3 {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: .8em;
+    gap: 1.25em;
 }
 
 ul {
-    gap: .8em;
+    gap: 1.25em;
     list-style-position: inside
 }
