@@ -304,6 +304,8 @@ body, .link, .btn, .chip, .project-cover, .feature-cover {
 
 }
 
+/* variant CTA styles removed (compact/header/fab) — contact available as mailto link in .links */
+
 .link {
     color: var(--link);
     font-size: 22px;
