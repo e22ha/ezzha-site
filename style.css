@@ -110,7 +110,7 @@ body {
     width: 100%;
     min-width: 320px;
     /* более большие боковые поля */
-    padding: 24px 64px;
+    padding: 24px 0;
     box-sizing: border-box;
     flex-direction: column;
     align-items: flex-start;
@@ -129,6 +129,11 @@ body {
     align-self: stretch;
     width: 100%;
     position: relative; /* allow absolute placement of controls */
+}
+
+/* ensure header content uses the same horizontal inset as .f-block/.s-block */
+.header, .f-block, .s-block {
+    padding: 0 1.5em;
 }
 
 /* Ограничение ширины контента и центрирование внутри полей */
@@ -416,11 +421,11 @@ h3 {
     font-style: normal;
     font-weight: 900;
     line-height: normal;
-}
+}не
 
 .s-block {
     display: flex;
-    padding: 0 2em;
+    padding: 0 1.5em; /* matched to .f-block for consistent horizontal inset */
     flex-direction: column;
     align-items: flex-start;
     gap: 1.25em;
@@ -539,6 +544,8 @@ ul {
 /* Mobile optimizations */
 @media (max-width: 520px) {
     body { padding: 18px 16px; }
+    /* ensure content containers match body inset on small screens */
+    .header, .f-block, .s-block { padding: 0 16px; }
     /* removed --project-rect-h override; let aspect-ratio control height */
     .project-row { gap: 12px; }
     .project-grid h3 { font-size: 22px; margin-top: 8px; margin-bottom: 12px; }
@@ -550,6 +557,10 @@ ul {
     .project-item { width: 100%; }
     .project-item .project-cover { max-width: 100%; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
 }
+
+/* make sure skills and footer align exactly with container inset */
+.skills-chips { margin-left: 0; padding-left: 0; }
+footer { margin-left: 0; padding-left: 0; }
 
 @media (max-width: 720px) {
     .media-grid img { height:70px; }
