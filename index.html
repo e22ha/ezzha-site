@@ -213,34 +213,7 @@
                             btn.setAttribute('aria-label','Переключиться на тёмную тему');
                         }
 
-                        // force inline styles from CSS variables to ensure visible change
-                        try {
-                            const cs = getComputedStyle(root);
-                            const bg = cs.getPropertyValue('--bg').trim();
-                            const text = cs.getPropertyValue('--text').trim();
-                            const link = cs.getPropertyValue('--link').trim();
-                            const card = cs.getPropertyValue('--card-bg').trim();
-                            const panelBorder = cs.getPropertyValue('--panel-border').trim();
-
-                            document.body.style.background = bg || '';
-                            document.body.style.color = text || '';
-
-                            document.querySelectorAll('.link, .btn-outline, a').forEach(el => {
-                                el.style.color = link || '';
-                            });
-                            document.querySelectorAll('.btn, .btn-primary').forEach(el => {
-                                el.style.background = text || '';
-                                el.style.color = bg || '';
-                            });
-                            document.querySelectorAll('.proposal').forEach(el => {
-                                el.style.background = card || '';
-                                el.style.borderColor = panelBorder || '';
-                            });
-                            document.querySelectorAll('.chip').forEach(el => {
-                                el.style.background = cs.getPropertyValue('--chip-bg').trim() || '';
-                                el.style.color = cs.getPropertyValue('--chip-text').trim() || '';
-                            });
-                        } catch(e){ /* ignore */ }
+                        // inline style fallback removed: theme colors handled by CSS variables for immediate repaint
                     }
                     const initial = saved ? saved : (prefersDark ? 'dark' : 'light');
                     applyTheme(initial);

@@ -234,9 +234,15 @@ body.dark .header-svg img {
     filter: invert(1) contrast(1.05) brightness(1.02);
 }
 
-/* smooth transitions for theme change */
-body, .link, .btn, .chip, .project-cover, .feature-cover {
-    transition: background-color 220ms ease, color 220ms ease, border-color 220ms ease, filter 220ms ease;
+/* smooth transitions for theme change (exclude color for links to avoid delayed color swap) */
+body, .btn, .chip, .project-cover, .feature-cover {
+    transition: background-color 220ms ease, border-color 220ms ease, filter 220ms ease;
+}
+
+/* Links should update color immediately when CSS variables change; avoid color transition to prevent perceived delay */
+.link, a {
+    color: var(--link) !important;
+    transition: none !important;
 }
 
 .header-controls {
