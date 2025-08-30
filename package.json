@@ -1,0 +1,11 @@
+{
+  "name": "ezzha-site-tools",
+  "version": "0.1.0",
+  "description": "",
+  "bin": {},
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+  }
+}

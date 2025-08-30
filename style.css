@@ -3,6 +3,68 @@
     font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
 }
 
+/* project image rectangle height */
+:root { --project-rect-h: 220px; }
+
+/* Theme variables (light by default) */
+:root {
+    --bg: #ffffff;
+    --text: #000000;
+    --muted: #666666;
+    --link: #000000;
+    --chip-bg: #111111;
+    --chip-text: #ffffff;
+    --chip-shadow: 0 6px 14px rgba(17,17,17,0.06);
+    --card-bg: #ffffff;
+    --panel-border: rgba(0,0,0,0.06);
+    --panel-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+/* dark theme via prefers-color-scheme */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #0b0b0c;
+        --text: #e6e6e6;
+        --muted: #9a9a9a;
+    --link: #ffffff;
+    --chip-bg: #e6e6e6;
+    --chip-text: #0b0b0c;
+    --chip-shadow: 0 6px 14px rgba(0,0,0,0.06);
+        --card-bg: #0f0f10;
+        --panel-border: rgba(255,255,255,0.06);
+        --panel-shadow: 0 6px 18px rgba(255,255,255,0.04);
+    }
+}
+
+/* allow manual override with data-theme="dark" on <html> */
+[data-theme="dark"] {
+    --bg: #0b0b0c;
+    --text: #e6e6e6;
+    --muted: #9a9a9a;
+    --link: #ffffff;
+    --chip-bg: #e6e6e6;
+    --chip-text: #0b0b0c;
+    --chip-shadow: 0 6px 14px rgba(0,0,0,0.06);
+    --card-bg: #0f0f10;
+    --panel-border: rgba(255,255,255,0.06);
+    --panel-shadow: 0 6px 18px rgba(255,255,255,0.04);
+}
+
+/* allow manual override to force light theme even if system is dark */
+[data-theme="light"] {
+    --bg: #ffffff;
+    --text: #000000;
+    /* make muted closer to black so 'muted' paragraphs remain readable on light theme */
+    --muted: #222222;
+    --link: #000000;
+    --chip-bg: #f3f3f3;
+    --chip-text: #111111;
+    --chip-shadow: 0 6px 14px rgba(0,0,0,0.06);
+    --card-bg: #ffffff;
+    --panel-border: rgba(0,0,0,0.06);
+    --panel-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
 @supports (font-variation-settings: normal) {
     :root {
         font-family: InterVariable, sans-serif;
@@ -46,13 +108,16 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, bo
 body {
     display: flex;
     width: 100%;
-    min-width: 400px;
-    padding: 10px 0;
+    min-width: 320px;
+    /* более большие боковые поля */
+    padding: 24px 64px;
+    box-sizing: border-box;
     flex-direction: column;
     align-items: flex-start;
     gap: 1.25em;
 
-    color: #000;
+    color: var(--text);
+    background: var(--bg);
     font-family: Inter, serif;
 }
 
@@ -63,6 +128,17 @@ body {
     align-items: center;
     align-self: stretch;
     width: 100%;
+    position: relative; /* allow absolute placement of controls */
+}
+
+/* Ограничение ширины контента и центрирование внутри полей */
+.header,
+.f-block,
+.s-block {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 }
 
 
@@ -71,25 +147,138 @@ body {
     height: 75px;
 }
 
+.header-svg img {
+    /* default: no invert; invert only in dark theme */
+    filter: none;
+}
+
+/* Strong, explicit theme application so toggle visibly changes colors */
+html[data-theme="dark"] body,
+body.dark {
+    background: var(--bg) !important;
+    color: var(--text) !important;
+}
+
+/* Highest specificity fallbacks to force background/text colors */
+html[data-theme="dark"] body,
+body.dark {
+    background-color: var(--bg) !important;
+    color: var(--text) !important;
+}
+
+/* ensure paragraphs and main text nodes update */
+html[data-theme="dark"] p,
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] li,
+body.dark p,
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark li {
+    color: var(--text) !important;
+}
+
+html[data-theme="dark"] .link,
+html[data-theme="dark"] .btn-outline,
+html[data-theme="dark"] a,
+body.dark .link,
+body.dark .btn-outline,
+body.dark a {
+    color: var(--link) !important;
+}
+
+/* Explicit component overrides for dark mode to ensure visible change */
+html[data-theme="dark"] .proposal,
+body.dark .proposal {
+    background: var(--card-bg) !important;
+    color: var(--text) !important;
+    border-color: var(--panel-border) !important;
+    box-shadow: var(--panel-shadow) !important;
+}
+
+html[data-theme="dark"] .chip,
+body.dark .chip {
+    background: var(--chip-bg) !important;
+    color: var(--chip-text) !important;
+    box-shadow: var(--chip-shadow) !important;
+}
+
+html[data-theme="dark"] .btn-primary,
+body.dark .btn-primary {
+    background: var(--text) !important;
+    color: var(--bg) !important;
+}
+
+html[data-theme="dark"] .links-block .cta-button,
+body.dark .links-block .cta-button {
+    background: var(--text) !important;
+    color: var(--bg) !important;
+}
+
+/* ensure headings and main blocks adapt */
+html[data-theme="dark"] h3,
+body.dark h3 {
+    color: var(--text) !important;
+}
+
+html[data-theme="dark"] footer,
+body.dark footer {
+    color: var(--muted) !important;
+}
+
+/* invert logo only in dark theme */
+html[data-theme="dark"] .header-svg img,
+body.dark .header-svg img {
+    filter: invert(1) contrast(1.05) brightness(1.02);
+}
+
+/* smooth transitions for theme change */
+body, .link, .btn, .chip, .project-cover, .feature-cover {
+    transition: background-color 220ms ease, color 220ms ease, border-color 220ms ease, filter 220ms ease;
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 40;
+}
+
+#theme-toggle {
+    background: var(--card-bg);
+    border: 1px solid var(--panel-border);
+    color: var(--text);
+    padding: 8px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: var(--panel-shadow);
+    transition: background-color 160ms ease, transform 120ms ease, color 160ms ease;
+}
+
+#theme-toggle:hover { transform: translateY(-2px); filter: brightness(1.03); }
+
 .f-block {
     display: flex;
-    padding: 0 2em;
-    justify-content: space-between;
-    align-items: flex-start;
-    align-content: space-between;
-    flex: 1 0 0;
-    align-self: stretch;
-    gap: 2em;
-    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 0 1.5em;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 1.5em;
 }
 
 .bio {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: flex-start;
     align-self: stretch;
-    gap: 2em;
+    gap: 1em;
 }
 
 .text {
@@ -104,7 +293,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: .8em;
+    gap: .6em;
 }
 
 .links {
@@ -116,7 +305,7 @@ body {
 }
 
 .link {
-    color: #000;
+    color: var(--link);
     font-size: 22px;
     font-style: normal;
     font-weight: 600;
@@ -166,11 +355,9 @@ body {
 }
 
 .feature-project {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.25em;
-    min-width: 30%;
+    display: block;
+    width: 100%;
+    margin-top: 14px;
 }
 
 .project-block {
@@ -181,17 +368,16 @@ body {
 }
 
 .pic-bloc {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
+    display: block;
     width: 100%;
-    height: 200px;
+    gap: 10px;
+    height: auto;
 }
 
 .pic-bloc img {
+    display: block;
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
     transition: filter 0.2s ease-in-out;
     filter: grayscale(1);
@@ -202,7 +388,7 @@ body {
 }
 
 p, h1, h2, .about-text, link, footer {
-    color: #000;
+    color: var(--text);
     font-size: 22px;
     font-style: normal;
     font-weight: 550;
@@ -210,7 +396,7 @@ p, h1, h2, .about-text, link, footer {
 }
 
 li{
-    color: #000;
+    color: var(--text);
     font-size: 22px;
     font-style: normal;
     font-weight: 600;
@@ -252,3 +438,216 @@ ul {
     gap: 1.25em;
     list-style-position: inside
 }
+
+/* single-column layout: bio, links, proposal, feature-project stack vertically */
+
+/* Proposal block style */
+.proposal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 12px;
+    background: var(--card-bg);
+    color: var(--text);
+    border-radius: 8px;
+    box-shadow: var(--panel-shadow);
+    border: 1px solid var(--panel-border);
+}
+.proposal-text {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* Ensure proposal sits nicely under links and spans content width */
+.proposal {
+    width: 100%;
+    margin-top: 8px;
+    background-clip: padding-box;
+}
+
+.links-block {
+    margin-bottom: 10px;
+}
+
+.feature-project {
+    margin-top: 14px;
+    position: relative;
+    z-index: 1;
+    padding-top: 6px;
+}
+
+.project-block { margin-bottom: 8px; }
+
+.feature-link { display:flex; flex-direction:column; text-decoration:none; color: inherit; }
+.feature-cover { width:100%; /* height removed to let content determine size */ border-radius:8px; display:block; object-fit:cover; }
+.feature-title { margin-top:8px; font-size:20px; font-weight:800; }
+
+/* Simplified project area: manual project items */
+.media-blocks { margin-top:12px; width: 100%; }
+.project-grid { display: block; gap: 12px; }
+.project-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: center; justify-items: center; }
+.project-item { display:flex; justify-content:center; align-items:center; text-decoration: none; color: inherit; padding:0; background: transparent; box-shadow: none; }
+.project-cover { max-width:100%; width:100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius:0; display:block; margin:0 auto; background: transparent; }
+.project-caption { display:none; }
+
+/* Make center project square */
+.project-row .project-item:nth-child(2) .project-cover {
+    /* same horizontal aspect as others */
+    max-width:100%;
+    width:100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: center center;
+    background: transparent;
+}
+
+.project-row .project-item:first-child .project-cover {
+    object-position: left center;
+}
+
+.project-grid h3 { margin-top: 6px; margin-bottom: 12px; }
+
+.project-item .project-caption { text-align: center; }
+
+/* Carousel (simple) */
+.project-carousel { display:flex; align-items:center; gap:12px; position:relative; }
+.carousel-track { display:flex; gap:12px; overflow:hidden; width:100%; transition: transform 360ms cubic-bezier(.22,.9,.26,1); }
+.carousel-track .project-item { min-width: 33.333%; flex: 0 0 33.333%; }
+.carousel-btn { background: rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.08); padding:8px 12px; border-radius:8px; cursor:pointer; font-size:20px; }
+.carousel-btn:hover { transform: translateY(-3px); }
+
+@media (max-width: 1100px) {
+    .project-row { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .project-row .project-item:nth-child(2) { transform: none; }
+    /* removed fixed height for second item so size is determined by content/aspect-ratio */
+    .project-row .project-item:nth-child(2) .project-cover { aspect-ratio: 16 / 9; object-fit: cover; }
+}
+
+@media (max-width: 720px) {
+    .project-row { grid-template-columns: 1fr; }
+    .project-row .project-item:nth-child(2) .project-cover { aspect-ratio: auto; }
+}
+
+/* Mobile optimizations */
+@media (max-width: 520px) {
+    body { padding: 18px 16px; }
+    /* removed --project-rect-h override; let aspect-ratio control height */
+    .project-row { gap: 12px; }
+    .project-grid h3 { font-size: 22px; margin-top: 8px; margin-bottom: 12px; }
+    .header-svg { height: 56px; }
+    .links .link { font-size: 18px; }
+
+    /* make stacked items full-width so images scale uniformly by aspect-ratio */
+    .project-row { justify-items: stretch; }
+    .project-item { width: 100%; }
+    .project-item .project-cover { max-width: 100%; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+}
+
+@media (max-width: 720px) {
+    .media-grid img { height:70px; }
+    .media-blocks { flex-direction:column; }
+}
+
+@media (max-width: 900px) {
+    .feature-project { display: block; }
+    .media-blocks { width: 100%; }
+    .media-grid { grid-auto-columns: minmax(90px, 1fr); }
+}
+
+/* Make project image responsive and keep aspect ratio */
+.pic-bloc img {
+    width: 100%;
+    height: auto;
+    max-height: 480px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Inline avatar inside bio text */
+.text img.avatar {
+    vertical-align: middle;
+    margin-left: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* Small inline graphics/icons used inside text */
+.inline-graphic {
+    vertical-align: middle;
+    margin-left: 8px;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+/* Skills chips */
+.skills-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 12px;
+    margin-top: 12px;
+}
+.chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: var(--chip-bg);
+    color: var(--chip-text);
+    font-weight: 700;
+    font-size: 14px;
+    box-shadow: var(--chip-shadow);
+    transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease;
+    cursor: default;
+}
+.chip:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(17,17,17,0.08);
+}
+
+.muted { color: var(--muted); }
+
+@media (max-width: 520px) {
+    .chip { padding: 6px 10px; font-size: 13px; }
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    transition: transform 120ms ease, box-shadow 120ms ease;
+}
+.btn-primary {
+    background: var(--text);
+    color: var(--bg);
+    box-shadow: var(--chip-shadow);
+}
+.btn-primary:hover { transform: translateY(-3px); }
+.btn-outline {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid currentColor; /* ensure border matches text for contrast */
+    padding: 8px 12px;
+    min-width: 160px;
+}
+.btn-outline:hover { transform: translateY(-3px); }
+
+.proposal-inner { display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
+.proposal-actions { display:flex; gap:12px; }
+
+/* CTA button in links block */
+.links-block .cta-button {
+    margin-top: 8px;
+    display: inline-block;
+    padding: 8px 12px;
+    background: var(--text);
+    color: var(--bg);
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight:700;
+}
+.links-block .cta-button:hover { transform: translateY(-3px); filter: brightness(1.03); }

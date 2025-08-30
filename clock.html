@@ -371,10 +371,7 @@
             textBrightness: 2.4  // Коэффициент яркости текста (1.0 - такой же как фон, >1.0 - ярче)
         };
         
-        // Генерация случайного цвета в формате hex
-        function getRandomColor() {
-            return '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
-        }
+    // debug helper removed — цвета фиксированы в конфигурации
         
         // Создание градиента
         function createGradient(colors, centerX, centerY) {
@@ -385,6 +382,7 @@
         // Проверка, остановлена ли анимация
         let gradientAnimationPaused = false;
         let savedAnimationStyle = '';
+    // отладочные переменные удалены
         
         // Функция для создания более яркого варианта цвета
         function createBrighterColor(color, factor = null) {
@@ -515,91 +513,7 @@
             syncClockColorWithGradient();
         }
         
-    // Функции для визуализации траектории вращения градиента
-    let trajectoryAnimationId = null;
-    
-    function initTrajectoryVisualization() {
-        const toggleVisualization = document.getElementById('toggleVisualization');
-        const overlay = document.getElementById('trajectoryVisualizationOverlay');
-        
-        toggleVisualization.addEventListener('change', function() {
-            if (this.checked) {
-                overlay.classList.add('active');
-                
-                // Если анимация не остановлена вручную, запускаем анимацию точек
-                if (!gradientAnimationPaused) {
-                    startTrajectoryAnimation();
-                } else {
-                    // В режиме ручного управления просто показываем точки в текущей позиции
-                    const manualRotation = document.getElementById('manualRotation');
-                    if (manualRotation) {
-                        const angle = parseInt(manualRotation.value);
-                        updatePointsPosition(angle);
-                    }
-                }
-            } else {
-                overlay.classList.remove('active');
-                stopTrajectoryAnimation();
-            }
-        });
-    }
-    
-    function startTrajectoryAnimation() {
-        if (trajectoryAnimationId) {
-            stopTrajectoryAnimation();
-        }
-        
-        const startPoint = document.querySelector('.gradient-start-point');
-        const endPoint = document.querySelector('.gradient-end-point');
-        const windowWidth = window.innerWidth;
-        const windowHeight = window.innerHeight;
-        
-        // Размеры эллипса (60% от размера окна)
-        const ellipseWidth = windowWidth * 0.6;
-        const ellipseHeight = windowHeight * 0.6;
-        
-        // Центр эллипса
-        const centerX = windowWidth / 2;
-        const centerY = windowHeight / 2;
-        
-        let angle = 0;
-        const speed = 360 / (gradientConfig.rotationSpeed * 30); // градусы за кадр
-        
-        function animatePoints() {
-            // Основная точка градиента (начало) - по эллиптической траектории
-            const x1 = centerX + (ellipseWidth / 2) * Math.cos(angle * (Math.PI / 180));
-            const y1 = centerY + (ellipseHeight / 2) * Math.sin(angle * (Math.PI / 180));
-            startPoint.style.left = x1 + 'px';
-            startPoint.style.top = y1 + 'px';
-            
-            // Противоположная точка (конец градиента) - по эллиптической траектории
-            const x2 = centerX + (ellipseWidth / 2) * Math.cos((angle + 180) * (Math.PI / 180));
-            const y2 = centerY + (ellipseHeight / 2) * Math.sin((angle + 180) * (Math.PI / 180));
-            endPoint.style.left = x2 + 'px';
-            endPoint.style.top = y2 + 'px';
-            
-            // Обновляем цвета точек
-            startPoint.style.backgroundColor = gradientConfig.colors[0];
-            startPoint.style.boxShadow = `0 0 8px ${gradientConfig.colors[0]}`;
-            
-            endPoint.style.backgroundColor = gradientConfig.colors[1];
-            endPoint.style.boxShadow = `0 0 8px ${gradientConfig.colors[1]}`;
-            
-            angle += speed;
-            if (angle >= 360) angle = 0;
-            
-            trajectoryAnimationId = requestAnimationFrame(animatePoints);
-        }
-        
-        animatePoints();
-    }
-    
-    function stopTrajectoryAnimation() {
-        if (trajectoryAnimationId) {
-            cancelAnimationFrame(trajectoryAnimationId);
-            trajectoryAnimationId = null;
-        }
-    }
+    // Визуализация траектории и связанные отладочные функции удалены — поведение фиксировано через `gradientConfig`.
     
     // Вспомогательная функция для интерполяции цвета
     function interpolateColor(color1, color2, factor) {
@@ -619,33 +533,24 @@
     }
         
     // Инициализация при загрузке страницы
-        function init() {
-            // Инициализация градиента
-            updateGradient();
-            
-            // Инициализация часов
-            updateClock();
-            setInterval(updateClock, 1000);
-            
-            // Явно синхронизируем стили текста при запуске
+    function init() {
+        // Инициализация градиента
+        updateGradient();
+
+        // Инициализация часов
+        updateClock();
+        setInterval(updateClock, 1000);
+
+        // Явно синхронизируем стили текста при запуске
+        syncClockColorWithGradient();
+
+        // Панели разработчика и визуализации удалены (фиксированные настройки).
+
+        // Обработка изменения размера окна
+        window.addEventListener('resize', () => {
+            // Переприменяем стили текста при изменении размера окна
             syncClockColorWithGradient();
-            
-            // Инициализация панели разработчика
-            initDevPanel();
-            
-            // Инициализация визуализации траектории
-            initTrajectoryVisualization();
-            
-            // Обработка изменения размера окна для визуализации
-            window.addEventListener('resize', () => {
-                if (document.getElementById('toggleVisualization').checked) {
-                    stopTrajectoryAnimation();
-                    startTrajectoryAnimation();
-                }
-                
-                // Переприменяем стили текста при изменении размера окна
-                syncClockColorWithGradient();
-            });
+        });
             
             // Предотвращение засыпания экрана
             if (navigator.wakeLock) {
